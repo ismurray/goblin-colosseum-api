@@ -1,6 +1,6 @@
 #!/bin/bash
-TOKEN="BAhJIiU5YjFhODgzOTYxOTkyNjJmYzFlNTZiNDVmYTk0MTJlMQY6BkVG--4099c0e1aa4dcd78cb52e5015e22ca63e56ed86b"
-TEXT='test'
+TOKEN="BAhJIiVkMDA4NWM0ZTliZmE2YTFkYjAwMGM1ZTlmNzkxMGI5ZAY6BkVG--1fd536084f7f1a7958b3ee5db1f09fce08038d25"
+TEXT='test2'
 
 curl "http://localhost:4741/examples" \
   --include \
