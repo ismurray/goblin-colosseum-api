@@ -1,6 +1,7 @@
 #!/bin/bash
 BOOLEAN=false
 SCORE=7
+USER_ID=2
 
 curl "http://localhost:4741/games" \
   --include \
@@ -9,7 +10,8 @@ curl "http://localhost:4741/games" \
   --data '{
     "game": {
       "over": "'"${BOOLEAN}"'",
-      "score": "'"${SCORE}"'"
+      "score": "'"${SCORE}"'",
+      "user_id": "'"${USER_ID}"'"
     }
   }'
 
