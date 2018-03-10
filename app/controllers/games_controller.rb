@@ -47,6 +47,7 @@ class GamesController < ProtectedController
 
     # Only allow a trusted parameter "white list" through.
     def game_params
-      params.require(:game).permit(:over, :score, :user_id, :player_state, :goblin_state)
+      params.require(:game).permit(:over, :score, :user_id, :player_state,
+                                   :goblin_state, :round)
     end
 end

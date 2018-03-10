@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180309145149) do
+ActiveRecord::Schema.define(version: 20180310151128) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 20180309145149) do
     t.bigint "user_id"
     t.text "player_state"
     t.text "goblin_state"
+    t.integer "round"
     t.index ["user_id"], name: "index_games_on_user_id"
   end
 
