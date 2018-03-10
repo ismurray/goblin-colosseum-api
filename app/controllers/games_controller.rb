@@ -15,8 +15,7 @@ class GamesController < ProtectedController
 
   # POST /games
   def create
-    # require pry; binding.pry
-    @game = current_user.games.build(game_params)
+    @game = current_user.games.build()
 
     if @game.save
       render json: @game, status: :created
