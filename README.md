@@ -43,6 +43,7 @@ https://i.imgur.com/gKXojNP.png
 * PostgresQL
 * Heroku
 * Git/Github
+* Atom
 
 ## Future Additions
 
