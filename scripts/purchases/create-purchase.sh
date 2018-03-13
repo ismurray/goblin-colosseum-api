@@ -1,7 +1,7 @@
 #!/bin/bash
 ITEM_ID=1
 USER_ID=2
-TOKEN="BAhJIiVhN2FlYWE3MjU0NTg3Zjg0NWQ2YTgyOTliNTU2MDUyMwY6BkVG--e3d8f024025ea199f49ab164891f64c05069bad6"
+TOKEN="BAhJIiVmODBjZGFlM2MzNDAwNjM1N2ZlMzU2MWE1OTJjM2NlYgY6BkVG--08da48e95ea64ce15ffc625a071cf824799084ad"
 
 curl "http://localhost:4741/purchases" \
 --include \
@@ -10,7 +10,6 @@ curl "http://localhost:4741/purchases" \
 --header "Authorization: Token token=${TOKEN}" \
 --data '{
   "purchase": {
-    "user_id": "'"${USER_ID}"'",
     "item_id": "'"${ITEM_ID}"'"
   }
 }'
