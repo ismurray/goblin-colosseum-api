@@ -16,6 +16,12 @@ class PurchasesController < ProtectedController
   # POST /purchases
   def create
     @purchase = current_user.purchases.build(purchase_params)
+    if @purchase.item.cost > current_user.gold
+      render json: 'INSUFFICIENT FUNDS'
+    else
+      current_user.gold -= @purchase.item.cost
+      current_user.save
+    end
 
     if @purchase.save
       render json: @purchase, status: :created
