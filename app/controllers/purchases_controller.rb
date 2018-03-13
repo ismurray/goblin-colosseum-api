@@ -1,9 +1,9 @@
-class PurchasesController < ApplicationController
+class PurchasesController < ProtectedController
   before_action :set_purchase, only: [:show, :update, :destroy]
 
   # GET /purchases
   def index
-    @purchases = Purchase.all
+    @purchases = current_user.purchases.all
 
     render json: @purchases
   end
@@ -15,7 +15,7 @@ class PurchasesController < ApplicationController
 
   # POST /purchases
   def create
-    @purchase = Purchase.new(purchase_params)
+    @purchase = current_user.purchases.build(purchase_params)
 
     if @purchase.save
       render json: @purchase, status: :created
@@ -41,7 +41,7 @@ class PurchasesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_purchase
-      @purchase = Purchase.find(params[:id])
+      @purchase = current_user.purchases.find(params[:id])
     end
 
     # Only allow a trusted parameter "white list" through.
