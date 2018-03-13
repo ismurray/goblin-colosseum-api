@@ -47,6 +47,10 @@ class UsersController < ProtectedController
     end
   end
 
+  def see_gold
+    render json: current_user.gold
+  end
+
   # PATCH '/deposit-gold/:amount'
   def gold_transaction
     @transaction = params[:amount].to_i

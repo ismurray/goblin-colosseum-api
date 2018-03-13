@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   post '/sign-in' => 'users#signin'
   delete '/sign-out' => 'users#signout'
   patch '/change-password' => 'users#changepw'
+  get '/gold' => 'users#see_gold'
   patch '/gold-transaction/:amount' => 'users#gold_transaction'
 
   get '/high-scores/:range' => 'games#high_scores'
