@@ -38,6 +38,22 @@ class GamesController < ProtectedController
     @game.destroy
   end
 
+  # GET /games/high-scores/:range
+  # return the top :range scores across all users, with usernames, scores, and ids
+  def high_scores
+    @scores = Game.where(over: 'true').limit(params[:range]).order('score desc')
+    @high_scores = []
+    0.upto(@scores.count - 1) do |i|
+      high_score = {
+        email: User.find(@scores[i].user_id).email,
+        score: @scores[i].score,
+        id: @scores[i].id
+      }
+      @high_scores.push(high_score)
+    end
+    render json: @high_scores
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_game
