@@ -47,6 +47,19 @@ class UsersController < ProtectedController
     end
   end
 
+  # PATCH '/deposit-gold/:amount'
+  def gold_transaction
+    @transaction = params[:amount].to_i
+    if @transaction.positive? ||
+       @transaction.negative? && @transaction.abs <= current_user.gold
+      current_user.gold += @transaction
+      current_user.save
+      render json: current_user.gold
+    else
+      head :bad_request
+    end
+  end
+
   def index
     render json: User.all
   end
