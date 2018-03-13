@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  resources :purchases, except: %i[new edit]
   resources :items, except: %i[new edit]
   resources :games, except: %i[new edit]
   # RESTful routes
