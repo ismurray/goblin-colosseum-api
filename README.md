@@ -17,17 +17,25 @@ The API does not currently validate game states.
 
 ## API End Points
 
-| Verb   | URI Pattern            | Controller#Action |
-|--------|------------------------|-------------------|
-| POST   | `/sign-up`             | `users#signup`    |
-| POST   | `/sign-in`             | `users#signin`    |
-| DELETE | `/sign-out`            | `users#signout`   |
-| PATCH  | `/change-password`     | `users#changepw`  |
-| GET    | `/games`               | `games#index`     |
-| POST   | `/games`               | `games#create`    |
-| GET    | `/games/:id`           | `games#show`      |
-| PATCH  | `/games/:id`           | `games#update`    |
-| DELETE | `/games/:id`           | `games#destroy`   |
+| Verb   | URI Pattern                 | Controller#Action         |
+|--------|-----------------------------|---------------------------|
+| POST   | `/sign-up`                  | `users#signup`            |
+| POST   | `/sign-in`                  | `users#signin`            |
+| DELETE | `/sign-out`                 | `users#signout`           |
+| PATCH  | `/change-password`          | `users#changepw`          |
+| GET    | `/gold`                     | `users#see_gold`          |
+| PATCH  | `/gold-transaction/:amount` | `users#gold_transaction`  |
+| GET    | `/games`                    | `games#index`             |
+| POST   | `/games`                    | `games#create`            |
+| GET    | `/games/:id`                | `games#show`              |
+| PATCH  | `/games/:id`                | `games#update`            |
+| DELETE | `/games/:id`                | `games#destroy`           |
+| GET    | `/high-scores/:range`       | `games#high_scores`       |
+| GET    | `/transactions`             | `transactions#index`      |
+| POST   | `/transactions`             | `transactions#create`     |
+| PATCH  | `/transactions/:id`         | `transactions#update`     |
+| DELETE | `/transactions/:id`         | `transactions#destroy`    |
+
 
 All data returned from API actions is formatted as JSON.
 
@@ -36,7 +44,7 @@ All data returned from API actions is formatted as JSON.
 - [Game Documentation](docs/game.md)
 
 ## Entity Relationship Diagram (ERD)
-https://i.imgur.com/gKXojNP.png
+https://i.imgur.com/CKmT4em.png
 
 ## Technologies Used
 * Ruby on Rails
