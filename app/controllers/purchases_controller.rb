@@ -15,19 +15,18 @@ class PurchasesController < ProtectedController
 
   # POST /purchases
   def create
-    @purchase = current_user.purchases.build(purchase_params)
+    @item_id = Item.find_by(name: purchase_params[:item_name])[:id]
+    @purchase = current_user.purchases.build(item_id: @item_id)
     if @purchase.item.cost > current_user.gold
       render json: 'INSUFFICIENT FUNDS'
-    else
+    elsif @purchase.save
       current_user.gold -= @purchase.item.cost
       current_user.save
-    end
-
-    if @purchase.save
       render json: @purchase, status: :created
     else
       render json: @purchase.errors, status: :unprocessable_entity
     end
+
   end
 
   # PATCH/PUT /purchases/1
@@ -52,6 +51,6 @@ class PurchasesController < ProtectedController
 
     # Only allow a trusted parameter "white list" through.
     def purchase_params
-      params.require(:purchase).permit(:user_id, :item_id)
+      params.require(:purchase).permit(:user_id, :item_id, :item_name)
     end
 end
