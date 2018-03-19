@@ -1,7 +1,7 @@
 #!/bin/bash
-ITEM_ID="Test"
+ITEM_ID="Health Potion"
 USER_ID=8
-TOKEN="BAhJIiUxYTVlYjYzMjY5NzEyN2VlYmE2ZjJhYjhlNTkyNzIxMAY6BkVG--03643113661ed514b7c1c3d8df184ff34f0f2b1d"
+TOKEN="BAhJIiU4MDczYTJiOWRiZmM5NGQ1NDIyOTJhYjgyZWZmNzkxNgY6BkVG--84bd84e1a28a191686f22c80a56257fd20d87fcc"
 
 curl "http://localhost:4741/purchases" \
 --include \

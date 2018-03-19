@@ -15,8 +15,8 @@ class PurchasesController < ProtectedController
 
   # POST /purchases
   def create
-    @item = Item.find_by(name: purchase_params[:item_name])
-    @purchase = current_user.purchases.build(item_id: @item.id)
+    @item_id = Item.find_by(name: purchase_params[:item_name])[:id]
+    @purchase = current_user.purchases.build(item_id: @item_id)
     if @purchase.item.cost > current_user.gold
       render json: 'INSUFFICIENT FUNDS'
     elsif @purchase.save
@@ -27,11 +27,6 @@ class PurchasesController < ProtectedController
       render json: @purchase.errors, status: :unprocessable_entity
     end
 
-    # if @purchase.save
-    #   render json: @purchase, status: :created
-    # else
-    #   render json: @purchase.errors, status: :unprocessable_entity
-    # end
   end
 
   # PATCH/PUT /purchases/1
