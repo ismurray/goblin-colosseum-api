@@ -44,7 +44,8 @@ All data returned from API actions is formatted as JSON.
 - [Game Documentation](docs/game.md)
 
 ## Entity Relationship Diagram (ERD)
-https://i.imgur.com/CKmT4em.png
+![ERD](https://i.imgur.com/CKmT4em.png)
+
 
 ## Technologies Used
 * Ruby on Rails
@@ -52,8 +53,6 @@ https://i.imgur.com/CKmT4em.png
 * Heroku
 * Git/Github
 * Atom
-
-## Future Additions
 
 ## Disclaimer
 This API may be reset or altered at anytime.  The future of this API may not align with the current state and therefore the state your client application expects.  If you would like to maintain a version of this API in its current state for your future use, please fork and clone the repository and launch it on heroku.
